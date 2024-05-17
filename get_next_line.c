@@ -6,7 +6,7 @@
 /*   By: psangunna <psanguna@student.42madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:53:46 by psangunna         #+#    #+#             */
-/*   Updated: 2024/05/16 18:53:50 by psangunna        ###   ########.fr       */
+/*   Updated: 2024/05/17 16:02:14 by psanguna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ ft_clean_file_buf, returning the next line extracted from the file.
 */
 char	*get_next_line(int fd)
 {
-	static char		*file_buf = NULL;
+	static char		*file_buf;
 	char			*show_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

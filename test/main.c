@@ -6,7 +6,7 @@
 /*   By: psangunna <psanguna@student.42madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:55:15 by psangunna         #+#    #+#             */
-/*   Updated: 2024/05/16 19:03:49 by psangunna        ###   ########.fr       */
+/*   Updated: 2024/05/17 16:04:49 by psanguna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 		printf("Error al abrir el archivo\n");
 		return (1);
 	}
+	printf("BUFFER_SIZE:%i\n",BUFFER_SIZE);
 	lines = 1;
 	while ((line = get_next_line(fd)) != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: psangunna <psanguna@student.42madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:57:05 by psangunna         #+#    #+#             */
-/*   Updated: 2024/05/16 18:57:08 by psangunna        ###   ########.fr       */
+/*   Updated: 2024/05/17 14:01:43 by psanguna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# ifndef MAX_FD 
-#  define MAX_FD 1024 
-# endif
+# define MAX_FD 1024
 
 /*functions*/
 char	*get_next_line(int fd);
