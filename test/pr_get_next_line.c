@@ -133,7 +133,7 @@ char	*ft_clean_file_buf(char	*file_buf)
 	if (!last_line)
 		return (NULL);
 	k = 0;
-	while (file_buf[i] != '\0' && file_buf[i])
+	while (file_buf[i] != '\0')
 		last_line[k++] = file_buf[i++];
 	last_line[k] = '\0';
 	free(file_buf);
