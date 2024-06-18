@@ -43,15 +43,18 @@ To use the get_next_line function in your project, include the **get_next_line.h
 #include <fcntl.h>
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int fd = open("example.txt", O_RDONLY);
-    if (fd == -1) {
+    if (fd == -1)
+    {
         perror("Error opening file");
         return 1;
     }
 
     char *line;
-    while ((line = get_next_line(fd)) != NULL) {
+    while ((line = get_next_line(fd)) != NULL)
+    {
         printf("%s", line);
         free(line);
     }
