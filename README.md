@@ -1,9 +1,9 @@
 # get_next_line
 **get_next_line** is a function that reads and returns a line from a file descriptor. This README provides details on the implementation, usage, and compilation instructions for the project.  
 # Index   
-- [Function Prototype](#fun_prototype)
 - [Description](#description)
-	- [Parameters](#parameters)
+  	- [Function Prototype](#fun_prototype)
+	- [Parameters](#parameters) 
 	- [Return value](#return)
 	- [Allowed functions](#allow)
 	- [Project files](#pr_files)
@@ -25,10 +25,6 @@
 	- [Compilation for Bonus Part](#b_compilation)
 	- [Usage for Bonus Part](#b_usage)
 - [Acknowledgements](#ack)
-### Function Prototype<a name="fun_prototype"></a>
-``
-char *get_next_line(int fd);
-``
 ### Description<a name="description"></a>
 The **get_next_line** function reads from the file descriptor fd and returns the next line from the file.
 Repeatedly calling get_next_line in a loop allows reading the file line by line until the end.
@@ -36,6 +32,10 @@ The function returns the line that has just been read.
 If there is nothing more to read or an error occurs, it returns **NULL**.
 The function should work properly when reading from both a file and stdin.
 The returned line should end with the newline character **\n**, except if the end of the file is reached and it does not end with a newline.
+#### Function Prototype<a name="fun_prototype"></a>
+``
+char *get_next_line(int fd);
+``
 #### Parameters <a name="parameters"></a>
 **fd**: The file descriptor from which to read.
 #### Return Value <a name="return"></a>
