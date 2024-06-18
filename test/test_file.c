@@ -20,19 +20,12 @@ size_t	ft_strlen(const char *str);
 int		ft_len_to_newline(char *file_buf);
 void	ft_copy_line(char *file_buf, char *line);
 
-
-//int	main(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	int		fd;
 	char	*line;
 	int		lines;
 
-	/*if (argc != 2)
-	{
-		printf("Uso: %s <nombre_archivo>\n", argv[0]);
-		return (1);
-	}*/
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
 	{
