@@ -1,17 +1,21 @@
 # get_next_line
-**get_next_line** is a function that reads and returns a line from a file descriptor. This README provides details on the implementation, usage, and compilation instructions for the project.
-### Function Prototype
+**get_next_line** is a function that reads and returns a line from a file descriptor. This README provides details on the implementation, usage, and compilation instructions for the project.  
+**Índice**   
+- [Primer apartado](#id1)
+- [Segundo apartado](#id2)
+- [Parameters](#parameters)  
+### Function Prototype<a name="id1"></a>
 ``
 char *get_next_line(int fd);
 ``
-### Description
+### Description<a name="id2"></a>
 The **get_next_line** function reads from the file descriptor fd and returns the next line from the file.
 Repeatedly calling get_next_line in a loop allows reading the file line by line until the end.
 The function returns the line that has just been read.
 If there is nothing more to read or an error occurs, it returns **NULL**.
 The function should work properly when reading from both a file and stdin.
 The returned line should end with the newline character **\n**, except if the end of the file is reached and it does not end with a newline.
-### Parameters
+### Parameters <a name="parameters"></a>
 **fd**: The file descriptor from which to read.
 ### Return Value
 * Returns the line read if successful.
@@ -44,9 +48,9 @@ To use the get_next_line function in your project, include the **get_next_line.h
 #include <stdio.h>
 int	main(void)
 {
-	int		fd;
+	int	fd;
 	char	*line;
-	int		lines;
+	int	lines;
 
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
@@ -80,7 +84,88 @@ int	main(void)
 **3.** **Buffer Management**: Keep track of the buffer's start and end positions to manage partially read data.  
 **4.** **Return Line**: Allocate memory for the line, copy the relevant portion of the buffer to it, and return the line.  
 **5.** **Handle End of File and Errors**: Ensure that the function returns NULL when the end of the file is reached or an error occurs.  
-#### Pseudo Code
+#### Pseudo Code  
+````
+function get_next_line(fd):
+    if fd < 0 or BUFFER_SIZE <= 0:
+        return NULL
+
+    file_buf = read_from_file(file_buf, fd)
+    if file_buf is NULL:
+        return NULL
+
+    show_line = extract_line(file_buf)
+    file_buf = clean_buffer(file_buf)
+    return show_line  
+
+function read_from_file(file_buf, fd):
+    while no newline in file_buf and char_read != 0:
+        buf = allocate BUFFER_SIZE + 1 bytes
+        char_read = read(fd, buf, BUFFER_SIZE)
+        if char_read < 0:
+            free buffers and return NULL
+        buf[char_read] = '\0'
+        file_buf = append_buffers(file_buf, buf)
+        free(buf)
+    return file_buf
+
+function extract_line(file_buf):
+    if file_buf is empty:
+        return NULL
+    line_len = length to newline in file_buf
+    line = allocate line_len + 1 bytes
+    copy data from file_buf to line
+    return line
+
+function clean_buffer(file_buf):
+    if file_buf is empty:
+        return NULL
+    move buffer pointer to after newline
+    allocate new buffer for remaining data
+    copy remaining data to new buffer
+    free old buffer
+    return new buffer
+
+function append_buffers(file_buf, buf):
+    allocate new buffer of size file_buf + buf
+    copy data from file_buf and buf to new buffer
+    free old file_buf
+    return new buffer
+````
+#### Sequence Diagram of get_next_line Function and Subfunctions
+```mermaid
+sequenceDiagram
+    participant Main
+    participant GNL as get_next_line
+    participant RF as read_from_file
+    participant EL as extract_line
+    participant CB as clean_buffer
+
+    Main->>GNL: get_next_line(fd)
+    GNL-->>Main: Return NULL if fd < 0 or BUFFER_SIZE <= 0
+    GNL->>RF: file_buf = read_from_file(file_buf, fd)
+    RF-->>GNL: Return NULL if read error
+    GNL->>EL: show_line = extract_line(file_buf)
+    EL-->>GNL: line extracted
+    GNL->>CB: file_buf = clean_buffer(file_buf)
+    CB-->>GNL: buffer cleaned
+    GNL-->>Main: Return show_line
+
+    RF->>RF: Allocate buffer
+    RF->>RF: Read fd into buffer
+    RF-->>GNL: Append buffer to file_buf
+
+    EL->>EL: Calculate line length
+    EL->>EL: Allocate line buffer
+    EL->>EL: Copy line to buffer
+    EL-->>GNL: Return line
+
+    CB->>CB: Move buffer pointer after newline
+    CB->>CB: Allocate new buffer for remaining data
+    CB->>CB: Copy remaining data to new buffer
+    CB-->>GNL: Return new buffer
+
+```
 #### Code Explanation
 * **ft_read_from_file**: Reads from the file descriptor and appends the content to a buffer until a newline character is found or the end of the file is reached.
 * **ft_get_line**: Extracts the next line from the buffer.
