@@ -20,7 +20,7 @@ size_t	ft_strlen(const char *str);
 int		ft_len_to_newline(char *file_buf);
 void	ft_copy_line(char *file_buf, char *line);
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	int		fd;
 	char	*line;
