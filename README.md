@@ -67,7 +67,7 @@ int main()
 * **get_next_line()** has undefined behavior if the file pointed to by **fd** changes after the last call, provided **read()** has not reached the end of the file.
 * **get_next_line()** has undefined behavior when reading a binary file.
 ## _Bonus Part_
-you can attempt these bonuses:
+After completing the mandatory part, you can further enhance the functionality of get_next_line with these additional features:
 ### Bonus Requirements
 * Implement **get_next_line()** using only one static variable.
 * **get_next_line()** should be able to manage multiple file descriptors simultaneously. For example, if you have * * three file descriptors (e.g., 3, 4, and 5), you should be able to use **get_next_line** on fd 3, then on fd 4, and then on fd 5 alternately, without losing the reading thread of each **fd**.
