@@ -24,11 +24,11 @@ The returned line should end with the newline character **\n**, except if the en
 * **get_next_line.c**
 * **get_next_line_utils.c**
 * **get_next_line.h**
-### Header File
+#### Header File
 The **get_next_line.h** header file should at least contain the prototype for the **get_next_line** function.
-### Helper Functions
+#### Helper Functions
 Add any necessary helper functions in the **get_next_line_utils.c** file.
-### Buffer Size
+#### Buffer Size
 the program must compile with the flag **-D BUFFER_SIZE=xx**. This flag will be used to set the buffer size for the reads in **get_next_line()**. This parameter will be changed by evaluators and the testing system to test the program.
 The project must compile with and without the **-D BUFFER_SIZE** flag, along with the usual flags. You can choose any default buffer size.
 ### Compilation
@@ -66,6 +66,19 @@ int main()
 ### Notes
 * **get_next_line()** has undefined behavior if the file pointed to by **fd** changes after the last call, provided **read()** has not reached the end of the file.
 * **get_next_line()** has undefined behavior when reading a binary file.
+### Logic and Implementation
+#### High-Level Overview
+**1.** **Static Buffer**: Use a static buffer to store read data across multiple calls to **get_next_line**.  
+**2.** **Reading Loop**: Continuously read from the file descriptor until a newline character **\n** is encountered or the end of the file is reached.  
+**3.** **Line Extraction**: Extract the line from the buffer and manage the remaining data for subsequent calls.  
+**4.** **Dynamic Memory Management**: Use **malloc** to allocate memory for the line to be returned and **free** to release it when no longer needed.  
+#### Detailed Steps
+**1.** **Initialize Static Variables**: Use a static variable to keep track of the buffer across function calls.  
+**2.** **Read from File Descriptor**: Use the read function to fill the buffer until a newline character is found or the end of the file is reached.  
+**3.** **Buffer Management**: Keep track of the buffer's start and end positions to manage partially read data.  
+**4.** **Return Line**: Allocate memory for the line, copy the relevant portion of the buffer to it, and return the line.  
+**5.** **Handle End of File and Errors**: Ensure that the function returns NULL when the end of the file is reached or an error occurs.  
+#### Pseudo Code
 ## _Bonus Part_
 After completing the mandatory part, you can further enhance the functionality of get_next_line with these additional features:
 ### Bonus Requirements
