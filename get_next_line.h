@@ -31,7 +31,6 @@ char	*ft_clean_file_buf(char *file_buf);
 int		ft_find_nextline(char *file_buf);
 char	*ft_append_char_read(char *file_buf, char *buf);
 size_t	ft_strlen(const char *str);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		ft_len_to_newline(char *file_buf);
 void	ft_copy_line(char *file_buf, char *line);
 
