@@ -1,5 +1,5 @@
 # get_next_line
-**get_next_line** is a function that reads and returns a line from a file descriptor. This README provides details on the implementation, usage, compilation instructions code and logic used for the project.  
+**get_next_line** is a function that reads and returns a line from a file descriptor. This README provides details on the implementation, usage, compilation instructions, code and logic used for the project.  
 # Index   
 - [Description](#description)
   	- [Function Prototype](#fun_prototype)
@@ -19,7 +19,7 @@
 	- [Pseudo Code](#pseudo)
 	- [Sequence Diagram of get_next_line Function and Subfunctions](#diagram)
 	- [Code explanation](#code)
-- [Bounus](#bonus)
+- [Bonus](#bonus)
 	- [Bonus Requirements](#b_req)
 	- [Bonus files](#b_files)
 	- [Compilation for Bonus Part](#b_compilation)
