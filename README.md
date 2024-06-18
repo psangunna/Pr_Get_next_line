@@ -63,6 +63,24 @@ int main()
     return 0;
 }
 ````
-## Notes
+### Notes
 * **get_next_line()** has undefined behavior if the file pointed to by **fd** changes after the last call, provided **read()** has not reached the end of the file.
 * **get_next_line()** has undefined behavior when reading a binary file.
+## _Bonus Part_
+you can attempt these bonuses:
+### Bonus Requirements
+* Implement **get_next_line()** using only one static variable.
+* **get_next_line()** should be able to manage multiple file descriptors simultaneously. For example, if you have * * three file descriptors (e.g., 3, 4, and 5), you should be able to use **get_next_line** on fd 3, then on fd 4, and then on fd 5 alternately, without losing the reading thread of each **fd**.
+### Bonus Files
+In addition to the mandatory files, you need to deliver the following files for the bonus part:
+get_next_line_bonus.c
+get_next_line_bonus.h
+get_next_line_utils_bonus.c
+### Compilation for Bonus Part
+Compile the bonus part with the following command (using a buffer size of 42 as an example):  
+``cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c -o get_next_line_bonus``
+### Usage for Bonus Part
+The usage remains the same as the mandatory part, but now **get_next_line** can handle multiple file descriptors.
+### *Acknowledgements*
+This project is part of the curriculum at [42 Madrid](https://www.42madrid.com/). Thanks to the 42 Network for providing the resources and guidance to complete this project.
+
