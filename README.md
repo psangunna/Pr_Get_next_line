@@ -24,11 +24,11 @@ The returned line should end with the newline character **\n**, except if the en
 * **get_next_line.c**
 * **get_next_line_utils.c**
 * **get_next_line.h**
-#### Header File
+### Header File
 The **get_next_line.h** header file should at least contain the prototype for the **get_next_line** function.
-#### Helper Functions
+### Helper Functions
 Add any necessary helper functions in the **get_next_line_utils.c** file.
-#### Buffer Size
+### Buffer Size
 the program must compile with the flag **-D BUFFER_SIZE=xx**. This flag will be used to set the buffer size for the reads in **get_next_line()**. This parameter will be changed by evaluators and the testing system to test the program.
 The project must compile with and without the **-D BUFFER_SIZE** flag, along with the usual flags. You can choose any default buffer size.
 ### Compilation
@@ -42,25 +42,27 @@ To use the get_next_line function in your project, include the **get_next_line.h
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
-
-int main()
+int	main(void)
 {
-    int fd = open("example.txt", O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Error opening file");
-        return 1;
-    }
+	int		fd;
+	char	*line;
+	int		lines;
 
-    char *line;
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line);
-        free(line);
-    }
-
-    close(fd);
-    return 0;
+	fd = open("text.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error al abrir el archivo\n");
+		return (1);
+	}
+	printf("BUFFER_SIZE:%i\n", BUFFER_SIZE);
+	lines = 1;
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("buffer --> %i %s\n", lines++, line);
+		free(line);
+	}
+	close(fd);
+	return (0);
 }
 ````
 ### Notes
@@ -79,6 +81,16 @@ int main()
 **4.** **Return Line**: Allocate memory for the line, copy the relevant portion of the buffer to it, and return the line.  
 **5.** **Handle End of File and Errors**: Ensure that the function returns NULL when the end of the file is reached or an error occurs.  
 #### Pseudo Code
+#### Code Explanation
+* **ft_read_from_file**: Reads from the file descriptor and appends the content to a buffer until a newline character is found or the end of the file is reached.
+* **ft_get_line**: Extracts the next line from the buffer.
+* **ft_clean_file_buf**: Cleans up the buffer by removing the content up to and including the first newline character.
+* **get_next_line**: The main function that coordinates reading from the file, extracting the line, and cleaning the buffer.
+* **ft_strlen**: Calculates the length of a string.
+* **ft_len_to_newline**: Calculates the length from the beginning of the buffer to the first newline character.
+* **ft_copy_line**: Copies characters from the buffer to a line buffer until a newline character is encountered.
+* **ft_find_nextline**: Checks if there is a newline character in the buffer.
+* **ft_append_char_read**: Appends the content of a temporary buffer to the main buffer.
 ## _Bonus Part_
 After completing the mandatory part, you can further enhance the functionality of get_next_line with these additional features:
 ### Bonus Requirements
