@@ -54,10 +54,10 @@ The **get_next_line.h** header file should at least contain the prototype for th
 #### Helper Functions <a name="hp_file"></a>
 Add any necessary helper functions in the **get_next_line_utils.c** file.
 #### Buffer Size <a name="buff_file"></a>
-the program must compile with the flag **-D BUFFER_SIZE=xx**. This flag will be used to set the buffer size for the reads in **get_next_line()**. This parameter will be changed by evaluators and the testing system to test the program.
+The program must compile with the flag **-D BUFFER_SIZE=xx**. This flag will be used to set the buffer size for the reads in **get_next_line()**. This parameter will be changed by evaluators and the testing system to test the program.
 The project must compile with and without the **-D BUFFER_SIZE** flag, along with the usual flags. You can choose any default buffer size.
 #### Compilation <a name="compilation"></a>
-Compile the project with the following command (using a buffer size of 42 as an example):  
+To compile the project with the following command (using a buffer size of 42 as an example):  
 ``
 cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c -o get_next_line
 ``
