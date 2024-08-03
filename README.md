@@ -62,7 +62,7 @@ Compile the project with the following command (using a buffer size of 42 as an 
 cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c -o get_next_line
 ``
 #### Usage <a name="usage"></a>
-To use the get_next_line function in your project, include the **get_next_line.h** header and compile thr project with the appropriate source files. Below is an example:
+To use the get_next_line function in your project, include the **get_next_line.h** header and compile the project with the appropriate source files. Below is an example:
 ````
 #include "get_next_line.h"
 #include <fcntl.h>
